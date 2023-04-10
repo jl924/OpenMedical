@@ -1,0 +1,50 @@
+body {
+  background-color: #20252d;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-areas:
+    "h h h"
+    "s1 c s2"
+    "f f f";
+}
+
+header {
+  grid-area: h;
+  background-color: black;
+  color: #20252d;
+  max-height: 65px;
+  vertical-align: baseline;
+}
+side1 {
+  grid-area: s1;
+}
+side2 {
+  grid-area: s2;
+}
+center {
+  grid-area: c;
+}
+footer {
+  grid-area: f;
+}
+
+#btn1 {
+  position: absolute;
+  color: white;
+  right: 4rem;
+  top: 1.5rem;
+}
+#btn2 {
+  position: absolute;
+  color: white;
+  right: 14rem;
+  top: 30 rem;
+}
+#btn3 {
+  position: absolute;
+  color: white;
+  right: 24rem;
+  top: 30 rem;
+}
