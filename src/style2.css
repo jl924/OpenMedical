@@ -1,6 +1,6 @@
 html,
 body {
-  background-color: #20252d;
+  background-color: lightgray;
   height: 100%;
   margin: 0;
 }
@@ -15,12 +15,12 @@ body {
 
 .side1 {
   grid-area: s1;
-  background-color: #20252d;
+  background-color: #53a8ce;
 }
 
 .content {
   grid-area: c;
-  background-color: darkgray;
+  background-color: lightgray;
 }
 
 .side2 {
@@ -32,15 +32,17 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: black;
+  background-color: blueviolet;
   color: white;
 }
 
 .header-buttons {
   display: flex;
   margin-left: auto;
+  color: aliceblue;
 }
 
 .header-buttons button {
   margin-right: 10px;
+  color: aliceblue;
 }
