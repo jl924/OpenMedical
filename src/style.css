@@ -34,6 +34,7 @@ body {
   align-items: center;
   background-color: black;
   color: white;
+  color: #f0f8ff
 }
 
 .header-buttons {
@@ -44,3 +45,4 @@ body {
 .header-buttons button {
   margin-right: 10px;
 }
+

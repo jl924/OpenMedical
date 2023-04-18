@@ -1,7 +1,29 @@
 import React from "react"
-import { TextField } from "@mui/material"
+import { useRef } from "react"
+import axios from "axios"
 
-let Login = () => {
+let Login = ({ goHome, setPatient }) => {
+  const emailRef = useRef()
+  const passwordRef = useRef()
+  const loginSubmit = (e) => {
+    e.preventDefault()
+    console.log(emailRef.current.value)
+    console.log(passwordRef.current.value)
+    var info = {}
+    info.email = emailRef.current.value
+    info.password = passwordRef.current.value
+    axios
+      .get("http://localhost:4000/login", { params: { info } })
+      .then((res) => {
+        console.log(res.data, "res at login frontend")
+        if (!res.data.firstName) {
+          alert(res.data)
+        } else {
+          setPatient(res.data)
+          goHome()
+        }
+      })
+  }
   return (
     <form
       style={{
@@ -23,6 +45,7 @@ let Login = () => {
           padding: "10px",
           fontSize: "14px",
         }}
+        ref={emailRef}
       />
       <input
         type="password"
@@ -34,6 +57,7 @@ let Login = () => {
           padding: "10px",
           fontSize: "14px",
         }}
+        ref={passwordRef}
       />
       <button
         type="submit"
@@ -43,6 +67,7 @@ let Login = () => {
           padding: "10px",
           fontSize: "16px",
         }}
+        onClick={loginSubmit}
       >
         Log in
       </button>

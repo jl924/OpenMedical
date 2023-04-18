@@ -2,10 +2,14 @@ import React from "react"
 import { useState, useEffect } from "react"
 import Button from "@mui/material/Button"
 import "./style2.css"
-import HomeScreen from "./HomeScreen"
+import HomeScreen from "./HomeScreen.js"
 import axios from "axios"
-import SignUp from "./signup"
-import Login from "./login"
+import SignUp from "./signup.js"
+import Login from "./login.js"
+import PatientInfo from "./patientInfo.js"
+import Contact from "./contact.js"
+import Appointment from "./appointment.js"
+import Chat from "./chat.js"
 
 let App = () => {
   const [home, setHome] = useState(false)
@@ -14,6 +18,7 @@ let App = () => {
   const [info, setInfo] = useState(false)
   const [login, setLogin] = useState(true)
   const [signup, setSignup] = useState(false)
+  const [patient, setPatient] = useState({})
 
   useEffect(() => {
     console.log("boring")
@@ -81,7 +86,13 @@ let App = () => {
     return (
       <>
         <div className="header">
-          <h1 style={{ marginLeft: "20px" }}>My App</h1>
+          <h1
+            style={{ marginLeft: "40px" }}
+            onClick={homeTrue}
+            className="title-h1"
+          >
+            OpenMedical
+          </h1>
           <div className="header-buttons">
             <Button
               variant="text"
@@ -105,14 +116,25 @@ let App = () => {
               onClick={infoTrue}
               className="header-button"
             >
-              Information
+              Contact Us
             </Button>
           </div>
         </div>
         {/* ========================================================================================================== */}
         {home ? (
           <div className="wrapper">
-            <div className="side1">Side 1</div>
+            <div className="side1">
+              <h4
+                style={{
+                  marginLeft: "10px",
+                  whiteSpace: "nowrap",
+                  marginTop: "10px",
+                }}
+              >
+                Welcome Back!
+              </h4>
+              <PatientInfo info={patient} />
+            </div>
             <div className="content">
               <HomeScreen />
             </div>
@@ -122,24 +144,63 @@ let App = () => {
         {/* ========================================================================================================== */}
         {apt ? (
           <div className="wrapper">
-            <div className="side1">Side 1</div>
-            <div className="content">APPOINTMENT</div>
+            <div className="side1">
+              <h4
+                style={{
+                  marginLeft: "10px",
+                  whiteSpace: "nowrap",
+                  marginTop: "10px",
+                }}
+              >
+                Welcome Back!
+              </h4>
+              <PatientInfo info={patient} />
+            </div>
+            <div className="content">
+              <Appointment />
+            </div>
             <div className="side2">Side 2</div>
           </div>
         ) : null}
         {/* ========================================================================================================== */}
         {chat ? (
           <div className="wrapper">
-            <div className="side1">Side 1</div>
-            <div className="content">CHAT TIME</div>
+            <div className="side1">
+              <h4
+                style={{
+                  marginLeft: "10px",
+                  whiteSpace: "nowrap",
+                  marginTop: "10px",
+                }}
+              >
+                Welcome Back!
+              </h4>
+              <PatientInfo info={patient} />
+            </div>
+            <div className="content">
+              <Chat />
+            </div>
             <div className="side2">Side 2</div>
           </div>
         ) : null}
         {/* ========================================================================================================== */}
         {info ? (
           <div className="wrapper">
-            <div className="side1">Side 1</div>
-            <div className="content">INFOOOO</div>
+            <div className="side1">
+              <h4
+                style={{
+                  marginLeft: "10px",
+                  whiteSpace: "nowrap",
+                  marginTop: "10px",
+                }}
+              >
+                Welcome Back!
+              </h4>
+              <PatientInfo info={patient} />
+            </div>
+            <div className="content">
+              <Contact />
+            </div>
             <div className="side2">Side 2</div>
           </div>
         ) : null}
@@ -153,7 +214,7 @@ let App = () => {
     return (
       <>
         <div className="header">
-          <h1 style={{ marginLeft: "20px" }}>My App</h1>
+          <h1 style={{ marginLeft: "40px" }}>OpenMedical</h1>
           <div className="header-buttons">
             <Button
               variant="text"
@@ -176,7 +237,7 @@ let App = () => {
         <div className="wrapper">
           <div className="side1"></div>
           <div className="content">
-            <Login />
+            <Login goHome={homeTrue} setPatient={setPatient} />
           </div>
           <div className="side2"></div>
         </div>
@@ -190,7 +251,7 @@ let App = () => {
     return (
       <>
         <div className="header">
-          <h1 style={{ marginLeft: "20px" }}>My App</h1>
+          <h1 style={{ marginLeft: "40px" }}>OpenMedical</h1>
           <div className="header-buttons">
             <Button
               variant="text"
@@ -212,7 +273,7 @@ let App = () => {
         <div className="wrapper">
           <div className="side1"></div>
           <div className="content">
-            <SignUp />
+            <SignUp toLogin={loginTrue} />
           </div>
           <div className="side2"></div>
         </div>

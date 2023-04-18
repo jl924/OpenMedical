@@ -10,14 +10,58 @@ db.once("open", function () {
 })
 
 const PatientSchema = new mongoose.Schema({
-  name: String,
-  age: String,
-  weight: String,
-  height: String,
-  blood: String,
-  allergy: String,
+  firstName: String,
+  lastName: String,
   email: String,
   password: String,
+  DOB: String,
+  gender: String,
+  height: String,
+  weight: String,
+  bloodType: String,
+  allergies: String,
 })
-// 3. Export the models
+
 const Patient = mongoose.model("Patient", PatientSchema)
+
+let insertPatient = (obj) => {
+  return Patient.insertMany([obj]).then((data) => {
+    return data
+  })
+}
+
+module.exports.insertPatient = insertPatient
+
+let getPatient = (email) => {
+  return Patient.findOne({ email: email }).then((data) => {
+    return data
+  })
+}
+
+module.exports.getPatient = getPatient
+
+const AppointmentSchema = new mongoose.Schema({
+  firstName: String,
+  lastName: String,
+  reason: String,
+  time: String,
+  date: String,
+})
+
+const Appointment = mongoose.model("Appointment", AppointmentSchema)
+
+let insertAppointment = (obj) => {
+  return Appointment.insertMany([obj]).then((data) => {
+    return data
+  })
+}
+
+module.exports.insertAppointment = insertAppointment
+
+let getAppointment = (date) => {
+  return Appointment.find({ date: date }).then((data) => {
+    return data
+  })
+}
+
+module.exports.getAppointment = getAppointment
