@@ -49,21 +49,32 @@ const Chat = () => {
       var array = []
       array.push(obj)
       setChat([...chat, obj])
-      console.log(chat)
+      // console.log(chat)
       axios
         .get("http://localhost:4000/gpt", { params: { obj } })
         .then((res) => {
-          console.log(res.data, "what came back from gpt")
+          // console.log(res.data, "what came back from gpt")
+          var reply = res.data[0].message.content
+          var array2 = reply.split(".")
+          for (var i = 0; i < array2.length; i++) {
+            console.log(array2[i])
+            console.log(array2[i].indexOf("AI"))
+            if (array2[i].indexOf("AI") > -1) {
+              array2.splice(i, 1)
+            }
+            if (array2[i].indexOf("However, i") > -1) {
+              array2[i] = array2[i].replace("However, i", "I")
+            }
+          }
+          var string = array2.join(".")
           var obj2 = {}
-          obj2.text1 = res.data[0].message.content
+          obj2.text1 = string
           obj2.gpt = true
-          var array2 = []
-          array2.push(obj2)
           setChat((prevChat) => [...prevChat, obj2])
           console.log(chat, "after setting obj2")
         })
-      console.log(chat)
-      console.log("Input value:", inputValue)
+      // console.log(chat)
+      // console.log("Input value:", inputValue)
       textRef.current.value = ""
     }
   }
@@ -89,26 +100,6 @@ const Chat = () => {
         }}
       >
         <div>
-          <p style={textStyleRight}>
-            <span style={spanStyleRight}>Hello Dr.GPT!</span>
-          </p>
-          <p style={textStyleLeft}>
-            <span style={spanStyleLeft}>Hey! how can I help you today?</span>
-          </p>
-          <p style={textStyleRight}>
-            <span style={spanStyleRight}>Just had a quick question!</span>
-          </p>
-          <p style={textStyleLeft}>
-            <span style={spanStyleLeft}>What is it?</span>
-          </p>
-          <p style={textStyleRight}>
-            <span style={spanStyleRight}>
-              I think I am getting a cold and fever, what should I do?
-            </span>
-          </p>
-          <p style={textStyleLeft}>
-            <span style={spanStyleLeft}>{test}</span>
-          </p>
           {chat.map((box) => {
             if (!box.gpt) {
               return (

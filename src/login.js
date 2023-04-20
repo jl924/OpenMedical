@@ -7,15 +7,15 @@ let Login = ({ goHome, setPatient }) => {
   const passwordRef = useRef()
   const loginSubmit = (e) => {
     e.preventDefault()
-    console.log(emailRef.current.value)
-    console.log(passwordRef.current.value)
+    // console.log(emailRef.current.value)
+    // console.log(passwordRef.current.value)
     var info = {}
     info.email = emailRef.current.value
     info.password = passwordRef.current.value
     axios
       .get("http://localhost:4000/login", { params: { info } })
       .then((res) => {
-        console.log(res.data, "res at login frontend")
+        // console.log(res.data, "res at login frontend")
         if (!res.data.firstName) {
           alert(res.data)
         } else {

@@ -1,6 +1,6 @@
 html,
 body {
-  background-color: lightgray;
+  background-color: #f7f0e6;
   height: 100%;
   margin: 0;
 }
@@ -15,25 +15,29 @@ body {
 
 .side1 {
   grid-area: s1;
-  background-color: #53a8ce;
+  background-color: aquamarine;
+  outline: solid;
+  outline-color: azure;
+  outline-width: thin;
+  /* background-image: url(); */
 }
 
 .content {
   grid-area: c;
-  background-color: lightgray;
-}
-
-.side2 {
-  grid-area: s2;
-  background-color: #20252d;
+  outline: solid;
+  outline-color: azure;
+  outline-width: thin;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: blueviolet;
+  background-color: #325343;
   color: white;
+  outline: solid;
+  outline-color: azure;
+  outline-width: thin;
 }
 
 .header-buttons {
@@ -49,4 +53,27 @@ body {
 
 .title-h1 {
   cursor: pointer;
+}
+
+.my-button {
+  margin-right: 8px;
+  background-color: red;
+  border-width: 1px;
+  border-color: #f7f0e6;
+  border-style: solid;
+  cursor: default;
+  /* Other default styles */
+}
+
+.my-button.active {
+  background-color: aqua;
+  border-width: 2px;
+  cursor: pointer;
+  border-radius: 20px;
+  /* Other styles for active state */
+}
+
+.my-button.active:hover {
+  background-color: skyblue;
+  /* Other styles for hover state */
 }

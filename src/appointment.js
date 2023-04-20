@@ -2,9 +2,11 @@ import React, { useState, useRef } from "react"
 import Calendar from "react-calendar"
 import "react-calendar/dist/Calendar.css"
 import axios from "axios"
+import "./style2.css"
 
-const Appointment = () => {
+const Appointment = ({ setAptTime, setAptDate }) => {
   const [value, onChange] = useState(new Date())
+  console.log(value)
   const [date, setDate] = useState("")
   const [apt, setApt] = useState(false)
   const [aptInput, setAptInput] = useState(false)
@@ -60,40 +62,38 @@ const Appointment = () => {
     var array2 = array.slice(0, 3)
     var aptDate = "" + array2[0] + ", " + array2[1] + " " + array2[2]
     setDate(aptDate)
-    console.log(aptDate)
+    // console.log(aptDate)
     await axios
       .get("http://localhost:4000/appointment", { params: { aptDate } })
       .then((result) => {
-        console.log(result)
+        // console.log(result)
         if (result.data) {
-          var temp = times
+          var temp = JSON.parse(JSON.stringify(times))
           for (var i = 0; i < result.data.length; i++) {
             var curr = result.data[i].time
             var hour = curr.substring(0, 1)
             var min = curr.slice(-2)
             var index = correspond[hour]
             if (temp[index][min]) {
-              console.log(temp[index][min])
+              // console.log(temp[index][min])
               temp[index][min] = "N/A"
             }
           }
           setAvailable(temp)
+          // console.log(temp)
         }
       })
     setApt(true)
   }
 
   let bookApt = (aptTime) => {
-    var value2 = value
-    var string1 = ""
-    string1 = string1 + value2
-    // console.log(string1)
-    var array = string1.split(" ")
-    var array2 = array.slice(0, 3)
-    var aptDate = "" + array2[0] + ", " + array2[1] + " " + array2[2]
-    console.log(aptDate, aptTime)
-    setTime(aptTime)
-    setAptInput(true)
+    if (aptTime !== "N/A") {
+      // console.log(aptDate, aptTime)
+      setTime(aptTime)
+      setAptInput(true)
+    } else {
+      alert("time is not available")
+    }
   }
   const firstNameRef = useRef()
   const lastNameRef = useRef()
@@ -113,27 +113,37 @@ const Appointment = () => {
       date: date,
     }
     axios.post("http://localhost:4000/appointment", obj).then((res) => {
-      console.log(res)
+      // console.log(res)
     })
-
-    console.log(obj)
+    setAptDate(date)
+    setAptTime(time)
+    alert("submitted!")
+    // console.log(obj)
   }
 
-  let stylePick = (time) => {
-    if (time !== "N/A") {
-      var def = {
-        marginRight: "8px",
-        backgroundColor: "skyBlue",
-      }
-      return def
-    } else {
-      var NoDef = {
-        marginRight: "8px",
-        backgroundColor: "red",
-      }
-      return NoDef
-    }
-  }
+  // let stylePick = (time) => {
+  //   if (time !== "N/A") {
+  //     var def = {
+  //       marginRight: "8px",
+  //       backgroundColor: "skyBlue",
+  //       borderRadius: "20px",
+  //       borderWidth: "2px",
+  //       borderColor: "#f7f0e6",
+  //       borderStyle: "solid",
+  //       cursor: "pointer",
+  //       transition: "background-color 0.3s ease",
+  //     }
+  //     return def
+  //   } else {
+  //     var NoDef = {
+  //       marginRight: "8px",
+  //       backgroundColor: "red",
+  //       borderWidth: "1px",
+  //       borderStyle: "solid",
+  //     }
+  //     return NoDef
+  //   }
+  // }
 
   return (
     <>
@@ -172,7 +182,6 @@ const Appointment = () => {
             }}
           >
             <h4>Available appointment for: {date}</h4>
-            <h5>N/A* Not Available</h5>
             {available.map((hello) => {
               return (
                 <div
@@ -192,25 +201,33 @@ const Appointment = () => {
                     {hello.time}
                   </div>
                   <button
-                    style={stylePick(hello["00"])}
+                    className={`my-button ${
+                      hello["00"] !== "N/A" ? "active" : ""
+                    }`}
                     onClick={() => bookApt(hello["00"])}
                   >
                     {hello["00"]}
                   </button>
                   <button
-                    style={stylePick(hello["15"])}
+                    className={`my-button ${
+                      hello["15"] !== "N/A" ? "active" : ""
+                    }`}
                     onClick={() => bookApt(hello["15"])}
                   >
                     {hello["15"]}
                   </button>
                   <button
-                    style={stylePick(hello["30"])}
+                    className={`my-button ${
+                      hello["30"] !== "N/A" ? "active" : ""
+                    }`}
                     onClick={() => bookApt(hello["30"])}
                   >
                     {hello["30"]}
                   </button>
                   <button
-                    style={stylePick(hello["45"])}
+                    className={`my-button ${
+                      hello["45"] !== "N/A" ? "active" : ""
+                    }`}
                     onClick={() => bookApt(hello["45"])}
                   >
                     {hello["45"]}
@@ -218,6 +235,9 @@ const Appointment = () => {
                 </div>
               )
             })}
+            <small style={{ textAlign: "right" }}>
+              <small style={{ textAlign: "right" }}>N/A* Not Available</small>
+            </small>
           </div>
         ) : null}
         {aptInput ? (
