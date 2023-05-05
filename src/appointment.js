@@ -53,6 +53,7 @@ const Appointment = ({ setAptTime, setAptDate }) => {
   }
   const [available, setAvailable] = useState(times)
   const handleDayClick = async (value) => {
+    setAptInput(false)
     setSelectedDate(value)
     var value2 = value
     var string1 = ""

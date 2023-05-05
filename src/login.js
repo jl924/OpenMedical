@@ -60,6 +60,7 @@ let Login = ({ goHome, setPatient }) => {
         ref={passwordRef}
       />
       <button
+        className="signInButton"
         type="submit"
         style={{
           marginTop: "10px",

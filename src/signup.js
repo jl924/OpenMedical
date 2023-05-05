@@ -126,6 +126,7 @@ let SignUp = ({ toLogin }) => {
         />
         <div style={{ display: "flex" }}>
           <button
+            className="signInButton"
             type="submit"
             style={{
               marginTop: "10px",
@@ -140,6 +141,7 @@ let SignUp = ({ toLogin }) => {
           </button>
           {sign1 ? (
             <button
+              className="signInButton"
               type="submit"
               style={{
                 marginTop: "10px",
@@ -243,6 +245,7 @@ let SignUp = ({ toLogin }) => {
         />
         <div style={{ display: "flex" }}>
           <button
+            className="signInButton"
             type="submit"
             style={{
               marginTop: "10px",
@@ -257,6 +260,7 @@ let SignUp = ({ toLogin }) => {
           </button>
           {sign2 ? (
             <button
+              className="signInButton"
               type="submit"
               style={{
                 marginTop: "10px",

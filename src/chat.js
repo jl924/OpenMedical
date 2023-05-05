@@ -32,8 +32,6 @@ const Chat = () => {
     position: "relative",
     zIndex: 1,
   }
-  var test =
-    "Stay hydrated: Drink plenty of water, clear fluids, and electrolyte-rich beverages to help replenish fluids lost due to fever and sweating. Rest: Get plenty of rest to allow your body to recover and heal. Take fever-reducing medication: Use over-the-counter fever-reducing medications such as acetaminophen (e.g., Tylenol) or ibuprofen (e.g., Advil) as directed by your healthcare provider to help lower your fever and provide relief from associated discomfort. Keep cool: Use a cool compress, take a lukewarm bath, or use a fan to help lower body temperature and alleviate discomfort. Dress lightly: Wear lightweight, loose-fitting clothing to allow your body to regulate its temperature more effectively. Monitor your symptoms: If your fever persists for an extended period, is accompanied by severe symptoms, or worsens despite home care, it's important to seek medical attention promptly."
 
   const [chat, setChat] = useState([])
   const textRef = useRef()
