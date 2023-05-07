@@ -31,24 +31,25 @@
 
 ## Overview
 
-This app was created to simulate an EMR (Electronic Medical Record) system. I had two days to create any project I wanted, and I did my best to incorporate two important features of an EMR: appointment scheduling and doctor communication. Additionally, I wanted to create a third section and work with graphing libraries, so I decided to add a COVID-19 tracker feature to the app.
+This app was created to simulate an EMR (Electronic Medical Record) system. I had three days to create any project I wanted, and I did my best to incorporate two important features of an EMR: appointment scheduling and doctor communication. Additionally, I wanted to create a third section and work with graphing libraries, so I decided to add a COVID-19 tracker feature to the app.
 
 ## Appointments
 
-The chat system is currently built and hooked up to ChatGPT. Users can input a question, and the chat will get back to you in a few seconds!
+To book an appointment with the doctor, simply click on your desired date and an available time slot. After that, write your name and reason for the visit. Once you have booked the appointment, that time slot will no longer be available, and the system will display your appointment date and time in your profile section.
 
  <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 ## Talk to a Doctor
 
+The chat system is currently built and hooked up to ChatGPT. Users can input a question, and the chat will get back to you in a few seconds!
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Covid19
 
-
+There are two sections for COVID-19 in this app. The first section displays yearly data for COVID-19 cases in the US. Users can select the year they want to see by using the drop-down selector. The second section displays overall data for COVID-19 cases by country. To view data for a specific country, simply type the country name in the input field and the graph will update accordingly.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
