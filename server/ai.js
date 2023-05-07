@@ -1,13 +1,12 @@
 const config = require("./ignore/ignore.js")
+require('dotenv').config()
 const { Configuration, OpenAIApi } = require("openai")
+console.log(process.env.openAI)
 
-// import { config } from "dotenv"
-// config()
-// console.log(process.env.API_KEY)
-console.log(config)
+
 const openai = new OpenAIApi(
   new Configuration({
-    apiKey: config.config.key,
+    apiKey: config.config.key, //Your API KEY HERE
   })
 )
 openai

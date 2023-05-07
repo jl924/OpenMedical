@@ -5,6 +5,7 @@ const app = express()
 const db = require("./db")
 const config = require("./ignore/ignore.js")
 const { Configuration, OpenAIApi } = require("openai")
+require('dotenv').config()
 
 app.use(
   cors({
@@ -50,7 +51,7 @@ app.post("/patients", (req, res) => {
 
 const openai = new OpenAIApi(
   new Configuration({
-    apiKey: config.config.key,
+    apiKey: process.env.openAI,
   })
 )
 

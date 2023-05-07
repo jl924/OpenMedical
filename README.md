@@ -20,9 +20,8 @@
       <a href="#overview">Overview</a>
       <ul>
         <li><a href="#Appointments">Appointments</a></li>
-        <li><a href="#related-items-and-outfit-creation">Related Items & Outfit Creation</a></li>
-        <li><a href="#questions-and-answers">Questions & Answers</a></li>
-        <li><a href="#ratings-and-reviews">Ratings & Reviews</a></li>
+        <li><a href="#Talk-to-a-Doctor">Related Items & Outfit Creation</a></li>
+        <li><a href="#Covid19">Questions & Answers</a></li>
       </ul>
     </li>
     <li>
@@ -47,42 +46,40 @@
 
  <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Questions and Answers
+## Talk to a Doctor
 
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Ratings and Reviews
+## Covid19
 
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Usage
-
-The primary goal of this repository was to provide an educational platform for our team of developers to practice building a React application utilizing a microservice architecture. The project involved collaborative work between three other engineers to ensure a robust and well-designed application. By working on this project, we gained valuable experience in developing and deploying microservices in a real-world application using git workflow.
 
 ## Installation
 
-1. Create Github personal access token [here](https://github.com/settings/tokens) with repo permission, at the least.
+1. Create OpenAI personal access token [here](https://platform.openai.com/).
 
 
 2. Fork and clone this repo, then open the terminal and navigate to the project root directory.
 
-3.
+3. Copy the provided .env.example and rename it to .env.
 
-```bash
-API_KEY=This is your GitHub
-CLOUDINARY_URL=This is the Cloudinary string
-URL=This is the URL for the server (by default localhost:3000)
-```
 
-5. In the terminal run the following scripts:
+4. In the terminal run the following scripts:
 
 ```bash
 npm install
 npm start
+```
+
+on a separate terminal:
+
+```bash
+node server/index.js
 ```
 
 6. Navigate to [localhost:3000](http://localhost:3000) in the browser.
