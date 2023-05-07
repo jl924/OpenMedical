@@ -59,13 +59,13 @@ let HomeScreen = () => {
         <div className="doctor2" style={{ display: "flex" }}>
           <div style={{ flex: "0 0 150px", marginRight: "20px" }}>
             <img
-              src="https://i.redd.it/bvjhv94ta7121.jpg"
+              src="https://nyulangone.org/images/doctors/e/eaton/1891984548/kennworth-j-eaton-thumb.jpg"
               alt="Team Member 2"
               style={{ width: "150px", height: "200px", objectFit: "cover" }}
             />
           </div>
           <div>
-            <h3 style={{ color: "#325343" }}>Dr. Johnny Yins</h3>
+            <h3 style={{ color: "#325343" }}>Dr. John Yins</h3>
             <p>Plastic Surgeon</p>
             <p>
               <small>

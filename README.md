@@ -31,17 +31,14 @@
 
 ## Overview
 
+This app was created to simulate an EMR (Electronic Medical Record) system. I had two days to create any project I wanted, and I did my best to incorporate two important features of an EMR: appointment scheduling and doctor communication. Additionally, I wanted to create a third section and work with graphing libraries, so I decided to add a COVID-19 tracker feature to the app.
 
 ## Appointments
 
-
-
- <p align="right">(<a href="#top">back to top</a>)</p>
-
-##
-
+The chat system is currently built and hooked up to ChatGPT. Users can input a question, and the chat will get back to you in a few seconds!
 
  <p align="right">(<a href="#top">back to top</a>)</p>
+
 
 ## Talk to a Doctor
 
