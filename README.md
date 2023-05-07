@@ -1,8 +1,5 @@
 ## OpenMedical
 
-<div style="display:flex; justify-content:center; width-100%">
-<img src="https://i.imgur.com/TLkWuwD.png" alt="Benj logo" />
-</div>
 
 ## Tech Stack
 
@@ -20,8 +17,8 @@
       <a href="#overview">Overview</a>
       <ul>
         <li><a href="#Appointments">Appointments</a></li>
-        <li><a href="#Talk-to-a-Doctor">Related Items & Outfit Creation</a></li>
-        <li><a href="#Covid19">Questions & Answers</a></li>
+        <li><a href="#Talk-to-a-Doctor">Talk to a Doctor</a></li>
+        <li><a href="#Covid19">Covid-19</a></li>
       </ul>
     </li>
     <li>
@@ -76,13 +73,13 @@ npm install
 npm start
 ```
 
-on a separate terminal:
+4.5. on a separate terminal:
 
 ```bash
 node server/index.js
 ```
 
-6. Navigate to [localhost:3000](http://localhost:3000) in the browser.
+5. Navigate to [localhost:3000](http://localhost:3000) in the browser.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
