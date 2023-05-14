@@ -5,7 +5,7 @@ const app = express()
 const db = require("./db")
 const config = require("./ignore/ignore.js")
 const { Configuration, OpenAIApi } = require("openai")
-require('dotenv').config()
+require("dotenv").config()
 
 app.use(
   cors({

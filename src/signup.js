@@ -27,7 +27,7 @@ let SignUp = ({ toLogin }) => {
 
   let onSubmit = (e) => {
     e.preventDefault()
-    console.log(form)
+    // console.log(form)
     var obj = form
     const firstName = firstNameRef.current.value
     const lastName = lastNameRef.current.value
@@ -39,8 +39,8 @@ let SignUp = ({ toLogin }) => {
     obj.password = password
     setForm(obj)
     passwordRef.current.value = ""
-    console.log(form)
-    console.log(firstName, lastName, email, password)
+    // console.log(form)
+    // console.log(firstName, lastName, email, password)
   }
 
   let submitPatient = (e) => {
@@ -62,7 +62,7 @@ let SignUp = ({ toLogin }) => {
     setForm(obj2)
     setSign2(true)
     axios.post("http://localhost:4000/patients", obj2).then((res) => {
-      console.log(res)
+      // console.log(res)
     })
   }
 

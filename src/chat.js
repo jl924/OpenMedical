@@ -55,8 +55,8 @@ const Chat = () => {
           var reply = res.data[0].message.content
           var array2 = reply.split(".")
           for (var i = 0; i < array2.length; i++) {
-            console.log(array2[i])
-            console.log(array2[i].indexOf("AI"))
+            // console.log(array2[i])
+            // console.log(array2[i].indexOf("AI"))
             if (array2[i].indexOf("AI") > -1) {
               array2.splice(i, 1)
             }
@@ -69,7 +69,7 @@ const Chat = () => {
           obj2.text1 = string
           obj2.gpt = true
           setChat((prevChat) => [...prevChat, obj2])
-          console.log(chat, "after setting obj2")
+          // console.log(chat, "after setting obj2")
         })
       // console.log(chat)
       // console.log("Input value:", inputValue)

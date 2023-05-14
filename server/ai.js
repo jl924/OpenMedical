@@ -18,7 +18,4 @@ openai
     console.log(res.data.choices)
   })
 
-// let talkToGpt = () => {
-// }
 
-//   module.exports.talkToGpt = talkToGpt
