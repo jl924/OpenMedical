@@ -1,7 +1,6 @@
 const config = require("./ignore/ignore.js")
 require('dotenv').config()
 const { Configuration, OpenAIApi } = require("openai")
-console.log(process.env.openAI)
 
 
 const openai = new OpenAIApi(
